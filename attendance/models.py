@@ -1,0 +1,35 @@
+# Setting Student model to use for setting up the database
+from django.db import models
+import qrcode
+from io import BytesIO
+from django.core.files import File
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    date_of_birth = models.DateField()
+    student_id = models.CharField(max_length=20, unique=True)
+    qr_code = models.ImageField(upload_to='qr_codes/', blank=True)
+
+    def save(self, *args, **kwargs):
+        # Generate QR code
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+        qr.add_data(self.student_id)
+        qr.make(fit=True)
+
+        # Create QR code image
+        img = qr.make_image(fill_color="black", back_color="white")
+
+        # Save QR code to field
+        buffer = BytesIO()
+        img.save(buffer)
+        filename = f'qr_code_{self.student_id}.png'
+        filebuffer = File(buffer, name=filename)
+        self.qr_code.save(filename, filebuffer)
+
+        #super().save(*args, **kwargs)
