@@ -12,24 +12,31 @@ class Student(models.Model):
     qr_code = models.ImageField(upload_to='qr_codes/', blank=True)
 
     def save(self, *args, **kwargs):
-        # Generate QR code
-        qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=10,
-            border=4,
-        )
-        qr.add_data(self.student_id)
-        qr.make(fit=True)
+        if not self.qr_code:
+            try:
+                # Generate QR code
+                qr = qrcode.QRCode(
+                    version=1,
+                    error_correction=qrcode.constants.ERROR_CORRECT_L,
+                    box_size=10,
+                    border=4,
+                )
+                qr.add_data(self.student_id)
+                qr.make(fit=True)
 
-        # Create QR code image
-        img = qr.make_image(fill_color="black", back_color="white")
+                # Create QR code image
+                img = qr.make_image(fill_color="black", back_color="white")
 
-        # Save QR code to field
-        buffer = BytesIO()
-        img.save(buffer)
-        filename = f'qr_code_{self.student_id}.png'
-        filebuffer = File(buffer, name=filename)
-        self.qr_code.save(filename, filebuffer)
+                # Save QR code to field
+                buffer = BytesIO()
+                img.save(buffer)
+                filename = f'qr_code_{self.student_id}.png'
+                filebuffer = File(buffer, name=filename)
+                self.qr_code.save(filename, filebuffer)
 
-        #super().save(*args, **kwargs)
+                # Call parent's save method
+                super().save(*args, **kwargs)
+
+            except Exception as e:
+                # Handle any exceptions (e.g., validation error, file saving error)
+                print(f"Error saving QR code for student {self.student_id}: {e}")
