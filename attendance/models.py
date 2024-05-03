@@ -30,7 +30,7 @@ class Student(models.Model):
                 # Save QR code to field
                 buffer = BytesIO()
                 img.save(buffer)
-                filename = f'qr_code_{self.student_id}.png'
+                filename = f'{self.student_id}.png'
                 filebuffer = File(buffer, name=filename)
                 self.qr_code.save(filename, filebuffer)
 
