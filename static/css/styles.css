@@ -1,0 +1,33 @@
+/* styles.css */
+
+.top-bar {
+    height: 50px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.top-bar h1 {
+    margin: 0;
+}
+
+.top-bar nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.top-bar nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.top-bar nav ul li a:hover {
+    color: #ccc;
+}

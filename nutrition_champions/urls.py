@@ -23,8 +23,10 @@ from nutrition_champions import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('attendance/', views.attendance_dashboard, name='attendance_dashboard'),
+    path('dashboard/', views.attendance_dashboard, name='attendance_dashboard'),
     path('add-student/', views.add_student, name='add_student'),
+    path('authentication/', views.login, name='login'),
+    path('school/', views.school_management, name='school_management'),
 ]
 
 if settings.DEBUG:

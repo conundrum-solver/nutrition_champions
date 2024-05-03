@@ -41,5 +41,12 @@ def add_student(request):
 
 
 def attendance_dashboard(request):
-    students = Student.objects.all()
-    return render(request, 'attendance_dashboard.html', {'students': students})
+    pass
+
+
+def school_management(request):
+    pass
+
+
+def login(request):
+    pass
