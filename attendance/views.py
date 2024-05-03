@@ -1,7 +1,12 @@
+from django.contrib.auth import authenticate
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .models import Student
 from .forms import StudentForm
+
+
+def home(request):
+    return render(request, 'home.html')
 
 
 def create_student(request):
@@ -25,10 +30,6 @@ def scan_qr_code(request):
         return render(request, 'scan_qr_code.html')
 
 
-def home(request):
-    return render(request, 'home.html')
-
-
 def add_student(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
@@ -38,15 +39,3 @@ def add_student(request):
     else:
         form = StudentForm()
     return render(request, 'add_student.html', {'form': form})
-
-
-def attendance_dashboard(request):
-    pass
-
-
-def school_management(request):
-    pass
-
-
-def login(request):
-    pass
