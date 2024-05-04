@@ -32,6 +32,7 @@ urlpatterns = [
     path('add-student/', attendance.views.add_student, name='add_student'),
     path('login/', authentication.views.login, name='login'),
     path('school/', school_management.views.school_management, name='school_management'),
+    path('signup/', authentication.views.SignUpView.as_view(), name='signup'),
 ]
 
 if settings.DEBUG:
