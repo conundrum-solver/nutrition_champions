@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-h=a!mi^j_fvr=2bc+@3mw2r@7yun)&274e8il$_m^@3j)ej&73
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nutrition-champions.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'nutrition-champions.onrender.com']
 
 
 # Application definition
