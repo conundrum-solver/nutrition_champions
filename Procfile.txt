@@ -1,1 +1,1 @@
-web: gunicorn nutrition_champions.wsgi:application --log-file - --bind 0.0.0.0:8000 --workers 4
+web: gunicorn nutrition_champions.wsgi:application --log-file - --bind 0.0.0.0:8000
