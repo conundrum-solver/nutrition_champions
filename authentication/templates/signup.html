@@ -12,15 +12,9 @@
     <h2>Sign Up</h2>
     <form method="post">
         {% csrf_token %}
-        <label for="id_full_name">Full Name:</label><br>
-        <input type="text" id="id_full_name" name="full_name"><br><br>
-        <label for="id_email">Email:</label><br>
-        <input type="email" id="id_email" name="email"><br><br>
-        <label for="id_password1">Password:</label><br>
-        <input type="password" id="id_password1" name="password1"><br><br>
-        <label for="id_password2">Confirm Password:</label><br>
-        <input type="password" id="id_password2" name="password2"><br><br>
+        {{ form.as_p }}
         <button type="submit">Sign Up</button>
+    </form>
     {% endblock %}
 </body>
 </html>
