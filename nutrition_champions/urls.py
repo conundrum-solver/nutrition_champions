@@ -30,9 +30,11 @@ urlpatterns = [
     path('', attendance.views.home, name='home'),
     path('dashboard/', dashboard.views.attendance_dashboard, name='attendance_dashboard'),
     path('add-student/', attendance.views.add_student, name='add_student'),
+    path('scan-student/', attendance.views.scan_qr_code, name='scan_qr_code'),
     path('login/', authentication.views.login, name='login'),
     path('school/', school_management.views.school_management, name='school_management'),
     path('signup/', authentication.views.SignUpView.as_view(), name='signup'),
+    path('decode-qr-code/', attendance.views.decode_qr_code, name='decode_qr_code'),
 ]
 
 if settings.DEBUG:

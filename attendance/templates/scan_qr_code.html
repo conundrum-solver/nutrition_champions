@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scan QR Code</title>
+  </head>
+  <body>
+    <h1>Scan QR Code</h1>
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="student_id">Student ID:</label>
+      <input
+        type="text"
+        id="student_id"
+        name="student_id"
+        required
+      /><br /><br />
+
+      <!-- Add a button to trigger QR code decoding -->
+      <button id="decode-qrcode">Decode QR Code</button>
+    </form>
+
+    {% if success_message %}
+    <p style="color: green">{{ success_message }}</p>
+    {% endif %} {% if message %}
+    <p style="color: red">{{ message }}</p>
+    {% endif %}
+
+    <script>
+      // JavaScript function to decode QR code
+      function decodeQRCode() {
+        // Retrieve QR code data and student ID from the form
+        var qrCodeData = document.getElementById("qr_code_data").value;
+        var studentId = document.getElementById("student_id").value;
+
+        // Call backend endpoint to decode QR code
+        // You can use AJAX to send the data to Django backend for decoding
+        // For simplicity, I'm just logging the data here
+        console.log("QR Code Data:", qrCodeData);
+        console.log("Student ID:", studentId);
+      }
+
+      // Attach event listener to the "Decode QR Code" button
+      document
+        .getElementById("decode-qrcode")
+        .addEventListener("click", decodeQRCode);
+    </script>
+  </body>
+</html>
