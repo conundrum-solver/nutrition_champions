@@ -6,9 +6,9 @@ from .models import UserProfile
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'email', 'is_active', 'is_staff')
+    list_display = ('first_name', 'last_name', 'email', 'is_active', 'is_staff')
     list_filter = ('is_active', 'is_staff')
-    search_fields = ('user__username', 'user__email', 'full_name')
+    search_fields = ('user__username', 'user__email', 'first_name', 'last_name')
     ordering = ('-user__date_joined',)
 
     def full_name(self, obj):
