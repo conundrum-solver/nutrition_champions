@@ -4,8 +4,8 @@ from PIL import Image
 
 def decode_qr_code(student_id):
     # Construct the filename based on the student ID
-    #filename = os.path.join('media/qr_codes/', f"{student_id}.png")
-    filename = os.path.join('media/qr_codes/qr_code_01_0BVZiCw.png')
+    filename = os.path.join('media/qr_codes/', f"{student_id}.png")
+    #filename = os.path.join('media/qr_codes/qr_code_01_0BVZiCw.png')
     print("Attempting to decode QR code from file: ", filename)
     
     # Check if the file exists
