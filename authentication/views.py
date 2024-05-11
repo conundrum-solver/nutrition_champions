@@ -6,27 +6,32 @@ from django.views.generic import CreateView
 from authentication.forms import SignUpForm
 
 
-# Create your views here.
-
 def user_login(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = authenticate(request, username=email, password=password)
-        if user is not None:
-            auth_login(request, user)
-            # Redirect to  home
-            return redirect('home')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if email and password:
+            user = authenticate(request, username=email, password=password)
+            if user is not None:
+                auth_login(request, user)
+                # Redirect to the dashboard
+                return redirect('attendance_dashboard')
+            else:
+                # Return an error message for invalid credentials
+                error_message = 'Invalid email or password. Please try again.'
+                return render(request, 'login.html', {'error': error_message})
         else:
-            # Return an error message or render the login page again with an error
-            return render(request, 'login.html', {'error': 'Invalid Email or password'})
+            # Return an error message if email or password is missing
+            error_message = 'Email and password are required.'
+            return render(request, 'login.html', {'error': error_message})
     else:
         return render(request, 'login.html')
 
 
 class SignUpView(CreateView):
     form_class = SignUpForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('home')
     template_name = 'signup.html'
 
 

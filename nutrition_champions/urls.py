@@ -27,14 +27,15 @@ from nutrition_champions import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', attendance.views.home, name='home'),
+    path('', authentication.views.user_login, name='home'),
     path('dashboard/', dashboard.views.attendance_dashboard, name='attendance_dashboard'),
     path('add-student/', attendance.views.add_student, name='add_student'),
-    path('login/', authentication.views.user_login, name='login'),
     path('scan-student/', attendance.views.scan_qr_code, name='scan_qr_code'),
     path('school/', school_management.views.school_management, name='school_management'),
     path('signup/', authentication.views.SignUpView.as_view(), name='signup'),
     path('decode-qr-code/', attendance.views.decode_qr_code, name='decode_qr_code'),
+    path('student_management/', attendance.views.student_management_view, name='student_management'),
+
 ]
 
 if settings.DEBUG:

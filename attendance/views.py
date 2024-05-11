@@ -11,15 +11,8 @@ def home(request):
     return render(request, 'home.html')
 
 
-def create_student(request):
-    if request.method == 'POST':
-        form = StudentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = StudentForm()
-    return render(request, 'create_student.html', {'form': form})
+def student_management_view(request):
+    return render(request, 'student_management.html')
 
 
 def scan_qr_code(request):
@@ -52,7 +45,7 @@ def add_student(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('dashboard')
     else:
         form = StudentForm()
     return render(request, 'add_student.html', {'form': form})
