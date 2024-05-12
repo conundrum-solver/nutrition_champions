@@ -7,10 +7,6 @@ from django.shortcuts import render
 from .utils import decode_qr_code  # Import the decoding function
 
 
-def home(request):
-    return render(request, 'home.html')
-
-
 def student_management_view(request):
     return render(request, 'student_management.html')
 
@@ -42,10 +38,15 @@ def scan_qr_code(request):
 
 def add_student(request):
     if request.method == 'POST':
+        print("Method is POST")
         form = StudentForm(request.POST)
         if form.is_valid():
+            print("Form is valid")
             form.save()
-            return redirect('dashboard')
+            return redirect('home')
+        else:
+            print("Form is invalid")
     else:
+        print("Method is NOT POST")
         form = StudentForm()
     return render(request, 'add_student.html', {'form': form})

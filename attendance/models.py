@@ -13,7 +13,7 @@ class Student(models.Model):
     name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     student_id = models.CharField(max_length=20, unique=True)
-    student_class = models.CharField(max_length=20, unique=True, default="1")
+    student_class = models.CharField(max_length=20, unique=True)
     gender = models.CharField(max_length=9,
                               choices=GENDER_CHOICES,
                               default="FEMALE")
@@ -37,7 +37,7 @@ class Student(models.Model):
 
                 # Save QR code to field
                 buffer = BytesIO()
-                img.save(buffer, format='PNG')
+                img.save(buffer)
                 filename = f'{self.student_id}.png'
                 filebuffer = File(buffer, name=filename)
                 self.qr_code.save(filename, filebuffer)

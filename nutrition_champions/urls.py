@@ -17,12 +17,10 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-
 import attendance.views
 import authentication.views
 import dashboard.views
 import school_management.views
-
 from nutrition_champions import settings
 
 urlpatterns = [
