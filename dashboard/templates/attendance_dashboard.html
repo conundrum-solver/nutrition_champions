@@ -1,35 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Dashboard</title>
+    <title>Dashboard</title>
 </head>
 <body>
-    <h1>Attendance Dashboard</h1>
-
-    <!-- Display overall attendance rate -->
-    <p>Overall Attendance Rate: {{ overall_attendance_rate }}%</p>
-
-    <!-- Display attendance metrics for each student -->
-    <h2>Student Attendance</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Student ID</th>
-                <th>Attendance</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for student in students %}
-            <tr>
-                <td>{{ student.name }}</td>
-                <td>{{ student.student_id }}</td>
-                <td>{{ student.attendance_percentage }}%</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    {% block content %}
+    <h1>Scan Records</h1>
+    <ul>
+        {% for record in scan_records %}
+        <li>
+            <p>Student ID: {{ record.student.student_id }}</p>
+            <p>Timestamp: {{ record.timestamp }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
 </body>
 </html>

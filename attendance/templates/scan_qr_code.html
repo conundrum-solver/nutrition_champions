@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +8,7 @@
     <title>Scan QR Code</title>
   </head>
   <body>
+    {% block content %}
     <h1>Scan QR Code</h1>
     <form method="post">
       {% csrf_token %}
@@ -47,5 +50,6 @@
         .getElementById("decode-qrcode")
         .addEventListener("click", decodeQRCode);
     </script>
+    {% endblock %}
   </body>
 </html>
