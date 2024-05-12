@@ -38,15 +38,10 @@ def scan_qr_code(request):
 
 def add_student(request):
     if request.method == 'POST':
-        print("Method is POST")
         form = StudentForm(request.POST)
         if form.is_valid():
-            print("Form is valid")
             form.save()
-            return redirect('home')
-        else:
-            print("Form is invalid")
+            return redirect('student_management')
     else:
-        print("Method is NOT POST")
         form = StudentForm()
     return render(request, 'add_student.html', {'form': form})

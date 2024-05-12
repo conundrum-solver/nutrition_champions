@@ -7,16 +7,15 @@ from django.core.files import File
 
 class Student(models.Model):
     GENDER_CHOICES = (
-        ("MALE", "Male"),
-        ("FEMALE", "Female")
+        ("male", "Male"),
+        ("female", "Female")
     )
     name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     student_id = models.CharField(max_length=20, unique=True)
     student_class = models.CharField(max_length=20, unique=True)
     gender = models.CharField(max_length=9,
-                              choices=GENDER_CHOICES,
-                              default="FEMALE")
+                              choices=GENDER_CHOICES)
     qr_code = models.ImageField(upload_to='qr_codes/', blank=True)
 
     def save(self, *args, **kwargs):
