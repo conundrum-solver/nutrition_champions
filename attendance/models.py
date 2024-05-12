@@ -47,3 +47,13 @@ class Student(models.Model):
             except Exception as e:
                 # Handle any exceptions (e.g., validation error, file saving error)
                 print(f"Error saving QR code for student {self.student_id}: {e}")
+
+
+class ScanRecord(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    # Add any other fields you want to include, such as the scanner's information
+
+    def __str__(self):
+        return f"Scan for {self.student} at {self.timestamp}"

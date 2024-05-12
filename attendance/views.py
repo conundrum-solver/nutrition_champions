@@ -1,10 +1,9 @@
-from django.contrib.auth import authenticate
-from django.http import HttpResponseRedirect
+from django.utils import timezone
 from django.shortcuts import render, redirect
-from .models import Student
+from .models import Student, ScanRecord
 from .forms import StudentForm
 from django.shortcuts import render
-from .utils import decode_qr_code  # Import the decoding function
+from .utils import decode_qr_code   # Import the decoding function
 
 
 def student_management_view(request):
@@ -18,10 +17,11 @@ def scan_qr_code(request):
 
         # Decode the QR code data for the given student ID
         decoded_data = decode_qr_code(student_id)
-        print(decoded_data)
         if decoded_data:
             # check if the decoded data matches the QR code data
             if decoded_data == student_id:
+                student = Student.objects.get(student_id=student_id)
+                ScanRecord.objects.create(student=student, timestamp=timezone.now())
                 success_message = f"QR code matched for the Student ID {student_id}."
                 return render(request, 'scan_qr_code.html', {'decoded_data': decoded_data, 'message': success_message})
             else:
@@ -45,3 +45,5 @@ def add_student(request):
     else:
         form = StudentForm()
     return render(request, 'add_student.html', {'form': form})
+
+
