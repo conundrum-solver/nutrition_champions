@@ -16,7 +16,7 @@ def user_login(request):
             if user is not None:
                 auth_login(request, user)
                 # Redirect to the dashboard
-                return redirect('attendance_dashboard')
+                return redirect('student_management')
             else:
                 # Return an error message for invalid credentials
                 error_message = 'Invalid email or password. Please try again.'

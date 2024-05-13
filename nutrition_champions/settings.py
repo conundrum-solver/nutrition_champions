@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'authentication',
     'dashboard',
     'school_management',
+    'django_plotly_dash',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_plotly_dash.middleware.BaseMiddleware',
 ]
 
 ROOT_URLCONF = 'nutrition_champions.urls'

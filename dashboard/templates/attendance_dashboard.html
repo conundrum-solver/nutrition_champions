@@ -4,19 +4,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    {% load plotly_dash %}
 </head>
 <body>
     {% block content %}
-    <h1>Scan Records</h1>
-    <ul>
-        {% for record in scan_records %}
-        <li>
-            <p>Student ID: {{ record.student.student_id }}</p>
-            <p>Timestamp: {{ record.timestamp }}</p>
-        </li>
-        {% endfor %}
-    </ul>
+    <div>
+        {% plotly_app 'dashboard_app' %}
+    </div>
     {% endblock %}
 </body>
 </html>
