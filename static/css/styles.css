@@ -1,61 +1,115 @@
 /* styles.css */
 
 .top-bar {
-    height: 50px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding-top: 10px;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  width: 100%;
+  position: fixed; /* Fixed position */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it is above other content */
 }
 
 .top-bar h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .top-bar nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .top-bar nav ul li {
-    display: inline;
-    margin-right: 20px;
+  display: inline;
+  margin-right: 20px;
 }
 
 .top-bar nav ul li a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .top-bar nav ul li a:hover {
-    color: #ccc;
+  color: #ccc;
 }
 
 .button {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 /* Light Mode Styles */
 body {
-    background-color: #f0f0f0;
-    color: #333;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.content {
+  display: inline-block;
+  padding: 5px 10px 15px 10px;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 50px;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #333;
-    color: #f0f0f0;
+  background-color: #333;
+  color: #f0f0f0;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-bar nav ul li {
+    display: block;
+    text-align: center;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .container {
+    width: 95%;
+  }
 }

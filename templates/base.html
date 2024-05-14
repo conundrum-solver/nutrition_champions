@@ -2,30 +2,30 @@
 
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Student Attendance{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
-    <script src="{% static 'js/script.js' %}"></script>
-    <!-- Top bar -->
-    <div class="top-bar">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <div class="content-container">
+      <button id="dark-mode-toggle">Toggle Dark Mode</button>
+      <script src="{% static 'js/script.js' %}"></script>
+      <!-- Top bar -->
+      <div class="top-bar container">
         <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'student_management' %}">Student Management</a></li>
-            </ul>
+          <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>
+              <a href="{% url 'student_management' %}">Student Management</a>
+            </li>
+          </ul>
         </nav>
+      </div>
+      <!-- Main content -->
+      <div class="content">{% block content %} {% endblock %}</div>
     </div>
-
-    <!-- Main content -->
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-    </div>
-</body>
+  </body>
 </html>
