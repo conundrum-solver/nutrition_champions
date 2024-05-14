@@ -39,7 +39,7 @@
 .button {
   display: inline-block;
   padding: 5px 10px;
-  background-color: #4caf50;
+  background-color: rgb(247, 69, 146);
   color: white;
   text-align: center;
   text-decoration: none;
@@ -61,6 +61,13 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  flex-direction: column; /* Ensure body content is vertically centered */
+  background-image: url("images/charity-logo-1.png"); /* Background image */
+  background-size: 80px 80px; /* Size of the background image */
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-blend-mode: overlay; /* Blend the background image and color */
 }
 
 .content-container {
@@ -75,8 +82,8 @@ body {
 .content {
   display: inline-block;
   padding: 5px 10px 15px 10px;
-  background-color: grey;
-  color: white;
+  background-color: rgb(221, 235, 247);
+  color: black;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
