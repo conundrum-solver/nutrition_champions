@@ -1,17 +1,24 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Student Management</title>
-</head>
-<body>
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Student Attendance{% endblock %}</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'css/images/favicon.ico' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
     {% block content %}
     <div>
-        <li><a href="{% url 'add_student' %}">Add Student</a></li>
-        <li><a href="{% url 'scan_qr_code' %}">Scan Student</a></li>
+      <li><a href="{% url 'add_student' %}">Add Student</a></li>
+      <li><a href="{% url 'scan_qr_code' %}">Scan Student</a></li>
     </div>
     {% endblock %}
-</body>
+  </body>
 </html>
