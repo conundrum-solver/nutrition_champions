@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 import attendance.views
 import authentication.views
 import dashboard.views
@@ -33,7 +33,7 @@ urlpatterns = [
     path('signup/', authentication.views.SignUpView.as_view(), name='signup'),
     path('decode-qr-code/', attendance.views.decode_qr_code, name='decode_qr_code'),
     path('student_management/', attendance.views.student_management_view, name='student_management'),
-    path('django_plotly_dash/', include('django_plotly_dash.urls')),
+
 ]
 
 if settings.DEBUG:
