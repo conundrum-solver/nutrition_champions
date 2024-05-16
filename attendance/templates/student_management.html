@@ -15,9 +15,10 @@
   </head>
   <body>
     {% block content %}
-    <div>
-      <li><a href="{% url 'add_student' %}">Add Student</a></li>
-      <li><a href="{% url 'scan_qr_code' %}">Scan Student</a></li>
+    <div class="content-container">
+      <br /><br />
+      <a href="{% url 'add_student' %}" class="button">Add Student</a>
+      <a href="{% url 'scan_qr_code' %}" class="button">Scan Student</a>
     </div>
     {% endblock %}
   </body>
