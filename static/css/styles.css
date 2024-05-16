@@ -2,18 +2,57 @@
 
 .top-bar {
   height: 50px;
-  background-color: #333;
+  background-color: #3d4346;
   color: white;
   text-align: center;
   padding-top: 10px;
+  padding-left: 20px;
   width: 100%;
   position: fixed; /* Fixed position */
   top: 0; /* Stick to the top */
   z-index: 1000; /* Ensure it is above other content */
+  border-bottom-left-radius: 20px; /* Adjust the radius as needed */
+  border-bottom-right-radius: 20px; /* Adjust the radius as needed */
 }
 
 .top-bar h1 {
   margin: 0;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%; /* Adjust this width as needed to center the nav items */
+}
+.nav-left li,
+.nav-right li {
+  margin-right: 40px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.logo img {
+  max-height: 40px; /* Adjust the size as needed */
+  border-radius: 10px;
+}
+
+.top-bar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .top-bar nav ul {
@@ -33,36 +72,56 @@
 }
 
 .top-bar nav ul li a:hover {
-  color: #ccc;
+  color: #0056b3;
 }
 
 .button {
   display: inline-block;
   padding: 5px 10px;
-  background-color: rgb(247, 69, 146);
+  background-color: #e61881;
   color: white;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
+}
+
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff; /* Bootstrap primary color */
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+a.button:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
 }
 
 /* Light Mode Styles */
 body {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #e61881;
+  font-family: "Roboto", sans-serif;
+  color: #3d4346;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
   flex-direction: column; /* Ensure body content is vertically centered */
-  background-image: url("images/charity-logo-1.png"); /* Background image */
+  /*background-image: url("images/charity-logo-1.png"); /* Background image */
   background-size: 80px 80px; /* Size of the background image */
   background-size: cover; /* Ensure the image covers the entire background */
   background-position: center; /* Center the image */
@@ -82,12 +141,12 @@ body {
 .content {
   display: inline-block;
   padding: 10px 100px 100px 100px;
-  background-color: rgb(221, 235, 247);
-  color: black;
+  background-color: white;
+  color: #3d4346;
   text-align: center;
   text-decoration: none;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   margin: 50px;
 }
 .container {
@@ -98,7 +157,7 @@ body {
 
 /* Dark Mode Styles */
 body.dark-mode {
-  background-color: #333;
+  background-color: #3d4346;
   color: #f0f0f0;
 }
 /* Responsive Design */
@@ -119,4 +178,30 @@ body.dark-mode {
   .container {
     width: 95%;
   }
+}
+
+/* styles for input text fields */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+  background-color: #f0f0f0; /* Light grey background */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%; /* Make inputs full width */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* Optional: Additional styling for better appearance */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+  background-color: #e0e0e0; /* Slightly darker grey on focus */
+  outline: none; /* Remove default focus outline */
+  border-color: #999;
 }
