@@ -2,7 +2,7 @@
 
 .top-bar {
   height: 50px;
-  background-color: #3d4346;
+  background-color: #e61881;
   color: white;
   text-align: center;
   padding-top: 10px;
@@ -40,7 +40,7 @@
 
 .logo {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-grow: 1;
 }
 
@@ -112,7 +112,7 @@ a.button:hover {
 
 /* Light Mode Styles */
 body {
-  background-color: #e61881;
+  background-color: lightgrey;
   font-family: "Roboto", sans-serif;
   color: #3d4346;
   display: flex;
@@ -155,29 +155,42 @@ body {
   margin: auto;
 }
 
+.menu-toggle {
+  display: none; /* Hide menu toggle button by default */
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.mobile-nav {
+  display: none; /* Hide the mobile nav by default */
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
   background-color: #3d4346;
   color: #f0f0f0;
 }
-/* Responsive Design */
-@media (max-width: 768px) {
-  .top-bar nav ul li {
-    display: block;
-    text-align: center;
-    margin: 5px 0;
-  }
+
+.welcome-message {
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px; /* Adjust to ensure it is below the top bar */
+  background-color: #f9f9f9; /* Light grey background */
+  border-radius: 10px;
 }
 
-@media (max-width: 480px) {
-  .button {
-    font-size: 14px;
-    padding: 5px;
-  }
+.welcome-message h1 {
+  font-size: 2em;
+  color: #333;
+}
 
-  .container {
-    width: 95%;
-  }
+.welcome-message p {
+  font-size: 1.2em;
+  color: #666;
 }
 
 /* styles for input text fields */
@@ -204,4 +217,59 @@ select:focus {
   background-color: #e0e0e0; /* Slightly darker grey on focus */
   outline: none; /* Remove default focus outline */
   border-color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-bar {
+    justify-content: space-between; /* Adjust justify-content for mobile */
+    padding-bottom: 20px;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none; /* Hide the main nav items */
+  }
+
+  .menu-toggle {
+    display: block; /* Show the menu toggle button */
+  }
+
+  .mobile-nav {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #e61881;
+    position: absolute;
+    top: 50px;
+    width: 80%;
+  }
+
+  .mobile-nav li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .logo {
+    order: 1;
+    justify-content: flex-start; /* Align the logo to the left */
+  }
+
+  .menu-toggle {
+    order: 2;
+    margin-left: auto; /* Push the toggle button to the right */
+  }
+
+  .logo img {
+    max-height: 20px; /* Adjust the size as needed */
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    max-height: 20px; /* Adjust the size as needed */
+    border-radius: 2px;
+  }
 }

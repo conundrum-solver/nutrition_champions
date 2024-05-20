@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +8,7 @@
   </head>
   <body>
     {% block content %}
-    <h1>Scan QR Code</h1>
+    <h2>Welcome to the Scan QR Code System</h2>
     <form method="post">
       {% csrf_token %}
 
