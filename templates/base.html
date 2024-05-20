@@ -22,24 +22,37 @@
       <div class="top-bar container">
         <nav>
           <div class="nav-container">
+            <div class="logo">
+              <a href="{% url 'scan_qr_code' %}">
+                <img
+                  src="{% static 'css/images/charity-logo-1.png' %}"
+                  alt="Logo"
+                />
+              </a>
+            </div>
             <ul class="nav-left">
-              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'home' %}">Login</a></li>
               <li>
-                <a href="{% url 'student_management' %}">Student Management</a>
+                <a href="{% url 'student_management' %}">QR Scan Management</a>
               </li>
             </ul>
-            <div class="logo">
-              <img
-                src="{% static 'css/images/charity-logo-1.png' %}"
-                alt="Logo"
-              />
-            </div>
             <ul class="nav-right">
               <li>
                 <button id="dark-mode-toggle">Toggle Dark Mode</button>
               </li>
             </ul>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <!-- Menu toggle button for mobile view -->
           </div>
+          <ul class="mobile-nav" id="mobile-nav">
+            <li><a href="{% url 'home' %}">Login</a></li>
+            <li>
+              <a href="{% url 'student_management' %}">Student Management</a>
+            </li>
+            <li>
+              <button id="dark-mode-toggle-mobile">Toggle Dark Mode</button>
+            </li>
+          </ul>
         </nav>
       </div>
       <!-- Main content -->
