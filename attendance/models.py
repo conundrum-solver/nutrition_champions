@@ -13,7 +13,7 @@ class Student(models.Model):
     name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     student_id = models.CharField(max_length=20, unique=True)
-    student_class = models.CharField(max_length=20, unique=True)
+    student_class = models.CharField(max_length=20)
     gender = models.CharField(max_length=9,
                               choices=GENDER_CHOICES)
     qr_code = models.ImageField(upload_to='qr_codes/', blank=True)
