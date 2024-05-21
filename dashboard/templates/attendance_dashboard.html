@@ -1,18 +1,10 @@
+{% load plotly_dash %}
+{% block title %}
+Dashboard
+{% endblock %}
 
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    {% load plotly_dash %}
-</head>
-<body>
-    {% block content %}
-    <div>
-        {% plotly_app 'dashboard' %}
-    </div>
-    {% endblock %}
-</body>
-</html>
+{% block content %}
+<div>
+    {% plotly_app name="dashboard" ratio=0.3 %}
+</div>
+{% endblock %}

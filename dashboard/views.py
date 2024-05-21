@@ -48,13 +48,13 @@ def update_graph (start_date, end_date):
     y_values = [entry['count'] for entry in scan_counts]
     figure = {
         'data': [
-            {'x': x_values, 'y': y_values, 'type': 'bar', 'name': 'Student Scans'}
+            {'x': x_values, 'y': y_values, 'type': 'line', 'name': 'Student Scans'}
         ],
         'layout': {
             'title': 'Student Scan Data',
             'xaxis': {'title': 'timestamp'},
             'yaxis': {'title': 'Scan Count'},
-            "height": 1700,  # px
+            "height": 500,  # px
         }
     }
 
