@@ -8,7 +8,7 @@
   </head>
   <body>
     {% block content %}
-    <h2>Welcome to the Scan QR Code System</h2>
+    <h2>Track meals</h2>
     <form method="post">
       {% csrf_token %}
 
@@ -21,7 +21,7 @@
       /><br /><br />
 
       <!-- Add a button to trigger QR code decoding -->
-      <button id="decode-qrcode">Decode QR Code</button>
+      <button id="decode-qrcode">Search pupil</button>
     </form>
 
     {% if success_message %}

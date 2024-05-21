@@ -25,7 +25,7 @@ from nutrition_champions import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',attendance.views.scan_qr_code, name='scan_qr_code'),
+    path('',attendance.views.welcome_login, name='welcome_login'),
     path('home/', authentication.views.user_login, name='home'),
     path('dashboard/', dashboard.views.dashboard_view, name='attendance_dashboard'),
     path('add-student/', attendance.views.add_student, name='add_student'),

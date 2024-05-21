@@ -9,6 +9,9 @@ from .utils import decode_qr_code   # Import the decoding function
 def student_management_view(request):
     return render(request, 'student_management.html')
 
+def welcome_login(request):
+    return render(request, 'welcome_login.html')
+
 
 def scan_qr_code(request):
     if request.method == 'POST':

@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% load static %}Welcome {% block content %}
+<div class="welcome-container">
+  <div class="welcome-image">
+    <a href="{% url 'welcome_login' %}">
+      <img src="{% static 'css/images/welcome-1.png' %}" alt="welcome login" />
+    </a>
+  </div>
+  <div class="welcome-message">
+    <h1>Welcome to the Student Attendance System</h1>
+    <p>
+      We are glad to have you here. Manage your students and their attendance
+      with ease using QR code.
+    </p>
+  </div>
+</div>
+{% endblock %}
