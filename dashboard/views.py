@@ -20,7 +20,7 @@ app.layout = html.Div([
     dcc.Graph(id='scan-graph'),
     dcc.DatePickerRange(
         id='date-picker',
-        start_date=date(2022, 1, 1),
+        start_date=date(2022, 4, 1),
         end_date=date.today()
     ),
 ])
@@ -54,7 +54,7 @@ def update_graph (start_date, end_date):
             'title': 'Student Scan Data',
             'xaxis': {'title': 'timestamp'},
             'yaxis': {'title': 'Scan Count'},
-            "height": 500,  # px
+            "height": 450,  # px
         }
     }
 
