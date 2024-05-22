@@ -15,11 +15,37 @@
   </head>
   <body>
     {% block content %}
-    <h2>Welcome to the QR Scanning System</h2>
+    <h2>What would you like to do?</h2>
     <div class="content-container">
       <br /><br />
-      <a href="{% url 'add_student' %}" class="button">Add Student</a>
-      <a href="{% url 'scan_qr_code' %}" class="button">Scan Student</a>
+      <a href="{% url 'add_student' %}" class="button">
+        <img
+          src="{% static 'css/images/add-pupil-icon.png' %}"
+          alt="Add Pupil"
+          class="button-icon"
+        />
+        Add pupil
+        <br />
+        <h6>Register pupil and generate ID</h6>
+      </a>
+      <a href="{% url 'scan_qr_code' %}" class="button">
+        <img
+          src="{% static 'css/images/qr-code-icon.png' %}"
+          alt="Scan meal"
+          class="button-icon"
+        />
+        Track meals <br />
+        <h6>Record number of meals received in a meal session</h6>
+      </a>
+      <a href="{% url 'attendance_dashboard' %}" class="button">
+        <img
+          src="{% static 'css/images/dashboard-icon.png' %}"
+          alt="dashboard"
+          class="button-icon"
+        />
+        View dashboard <br />
+        <h6>View or export data</h6>
+      </a>
     </div>
     {% endblock %}
   </body>

@@ -23,7 +23,7 @@
         <nav>
           <div class="nav-container">
             <div class="logo">
-              <a href="{% url 'student_management' %}">
+              <a href="{% url 'home' %}">
                 <img
                   src="{% static 'css/images/charity-logo-1.png' %}"
                   alt="Logo"
@@ -32,9 +32,11 @@
             </div>
             <ul class="nav-left">
               <li><a href="{% url 'home' %}">Login</a></li>
+              {% comment %}
               <li>
                 <a href="{% url 'student_management' %}">QR Scan Management</a>
               </li>
+              {% endcomment %}
             </ul>
             <ul class="nav-right">
               <li>
@@ -46,9 +48,11 @@
           </div>
           <ul class="mobile-nav" id="mobile-nav">
             <li><a href="{% url 'home' %}">Login</a></li>
+            {% comment %}
             <li>
               <a href="{% url 'student_management' %}">Student Management</a>
             </li>
+            {% endcomment %}
             <li>
               <button id="dark-mode-toggle-mobile">Toggle Dark Mode</button>
             </li>
