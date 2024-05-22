@@ -224,6 +224,7 @@ select:focus {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: 100%;
   flex-wrap: wrap; /* Ensure wrapping in mobile view */
 }
 
@@ -307,7 +308,7 @@ select:focus {
     text-align: center; /* Center text in mobile view */
   }
   .welcome-image img {
-    max-width: 80%;
+    max-width: 100%;
     border-radius: 5px;
   }
   .welcome-message h1 {
